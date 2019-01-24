@@ -15,19 +15,6 @@ class App extends Component {
     showPersons: false
   }
 
-  switchNameHandler = (newValue) => {
-    //console.log('button clicked!');
-    this.setState(
-      {
-        persons: [
-          { name: newValue, age: 28 },
-          { name: 'Manu', age: 29 },
-          { name: 'Stephanie', age: 37 }
-        ]
-      }
-    )
-  }
-
   nameChangedHandler = (event) => {
     this.setState(
       {
