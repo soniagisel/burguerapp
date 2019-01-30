@@ -9,6 +9,6 @@ const styles = {
 }
 
 const CharComponent = props =>
-    props.text.split('').map((char, index) => <div key={index} style={styles} className="charComponent">{char}</div>)
+    props.text.split('').map((char, index) => <div key={index} onClick={() => props.click(char, index)} style={styles} className="charComponent">{char}</div>)
 
 export default CharComponent;
