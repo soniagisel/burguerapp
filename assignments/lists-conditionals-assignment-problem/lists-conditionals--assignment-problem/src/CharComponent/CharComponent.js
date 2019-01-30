@@ -8,8 +8,7 @@ const styles = {
     border: '1px solid black'
 }
 
-const CharComponent = () => {
-    return <div style={styles} className="charComponent"></div>
-};
+const CharComponent = props =>
+    props.text.split('').map((char, index) => <div key={index} style={styles} className="charComponent">{char}</div>)
 
 export default CharComponent;

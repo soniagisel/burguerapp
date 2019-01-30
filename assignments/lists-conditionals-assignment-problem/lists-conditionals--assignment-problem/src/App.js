@@ -6,12 +6,14 @@ import CharComponent from './CharComponent/CharComponent';
 class App extends Component {
 
   state = {
-    textLength: 0
+    textLength: 0,
+    text: ''
   }
 
   outputLength = (event) => {
     this.setState({
-      textLength: event.target.value.length
+      textLength: event.target.value.length,
+      text: event.target.value
     });
   }
 
@@ -21,7 +23,7 @@ class App extends Component {
         <input type="text" onChange={(event) => this.outputLength(event)}/>
         <p>Text length: {this.state.textLength}</p>
         <ValidationComponent textLength={this.state.textLength}/>
-        <CharComponent />
+        <CharComponent text={this.state.text} />
         <ol>
           <li>DONE - Create an input field (in App component) with a change listener which outputs the length of the entered text below it (e.g. in a paragraph).</li>
           <li>DONE - Create a new component (=> ValidationComponent) which receives the text length as a prop</li>
