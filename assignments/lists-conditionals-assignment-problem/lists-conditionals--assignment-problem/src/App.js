@@ -18,16 +18,12 @@ class App extends Component {
   }
 
   deleteChar = (char, index) => {
-    console.log(char + ' ' + index);
     let text = null;
     let newText = null;
 
     text = [...this.state.text];
-    console.log(text);
     text.splice(index, 1);
-    console.log(text);
     newText = text.join('');
-    console.log(newText);
 
     this.setState({
       text: newText
