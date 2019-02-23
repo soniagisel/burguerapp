@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import classes from './Cockpit.css';
+//import { clearTimeout } from 'timers';
 
 const cockpit = (props) => {
 
@@ -8,10 +9,23 @@ const cockpit = (props) => {
     useEffect(() => {
         console.log('[Cockpit.js] useEffect');
         // Http requests ...
-        setTimeout(() => {
+        const timer = setTimeout(() => {
             alert('Saved data to cloud!');
         }, 1000);
+        return () => { 
+            clearTimeout(timer);
+            console.log('[Cockpit.js] cleanup work in useEffect'); 
+        }
     }, [props.persons]);
+
+    //when it has no arguments array at the end
+    //it runs in every update cycle.
+    useEffect(() => {
+        console.log('[Cockpit.js] 2nd useEffect');
+        return () => { 
+            console.log('[Cockpit.js] cleanup work in useEffect'); 
+        }
+    });
 
     const assignedClasses = [];
     let btnClass = '';
